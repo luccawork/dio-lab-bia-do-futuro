@@ -1,149 +1,159 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# Senninha — Agente Financeiro de Datas e Vencimentos
 
-## Contexto
+## Visão geral
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+O Senninha é um protótipo de agente financeiro consultivo criado para responder perguntas sobre contas, vencimentos, datas de fechamento e contexto de atendimento. A ideia central é permitir que o cliente consulte informações de forma simples em linguagem natural, sem usar dados reais e sem transformar o agente em consultor de investimentos ou recomendador de pagamento.
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
-
----
-
-## O Que Você Deve Entregar
-
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+A solução combina:
+- linguagem natural;
+- dados locais fictícios em CSV/JSON;
+- interface em Streamlit;
+- integração opcional com Ollama para uma experiência mais natural;
+- resposta segura com fallback determinístico.
 
 ---
 
-### 2. Base de Conhecimento
+## Caso de uso
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+### Problema
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+Muitas pessoas têm dificuldade em acompanhar contas recorrentes ao longo do mês e não lembram facilmente quando cada conta fecha e vence. Isso pode gerar esquecimento, atraso e ansiedade.
 
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
+### Solução
 
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+O Senninha organiza e apresenta esses dados em linguagem natural, mostrando:
+- datas de fechamento;
+- datas de vencimento;
+- valores das contas;
+- status informativo;
+- histórico de atendimentos demonstrativos.
 
----
+Ele não recomenda ordem de pagamento nem faz previsões financeiras, apenas responde com base nos dados disponíveis.
 
-### 3. Prompts do Agente
+### Público-alvo
 
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
+O projeto é pensado para:
+- pessoas físicas que querem acompanhar contas recorrentes;
+- usuários que desejam consultar vencimentos de forma simples;
+- protótipos de agentes financeiros em contextos acadêmicos ou de demonstração.
 
 ---
 
-### 4. Aplicação Funcional
+## Arquitetura
 
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
-
-## Estrutura do Repositório
-
-```
-📁 lab-agente-financeiro/
-│
-├── 📄 README.md
-│
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
-│
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
-│
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+```mermaid
+flowchart TD
+    A[Usuário] --> B[Interface Streamlit]
+    B --> C[Agente / Lógica]
+    C --> D[Dados locais]
+    C --> E[Ollama opcional]
+    D --> C
+    E --> C
+    C --> F[Resposta segura]
 ```
 
+### Componentes
+
+| Componente | Descrição |
+|------------|-----------|
+| Interface | Streamlit para conversa e visualização das contas |
+| Agente | Lógica de interpretação e resposta com base em dados locais |
+| Base de conhecimento | CSVs e JSON simulados em `data/` |
+| LLM opcional | Ollama para respostas mais naturais quando disponível |
+
 ---
 
-## Dicas Finais
+## Base de conhecimento
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+Os dados ficam na pasta `data/` e foram adaptados para o caso de uso do projeto:
+
+- `data/contas.csv`: contas, vencimentos, fechamento e valores
+- `data/historico_atendimento.csv`: histórico de atendimentos demonstrativos
+- `data/transacoes.csv`: registros de transações de exemplo
+- `data/perfil_investidor.json`: perfil de investidor fictício
+- `data/produtos_financeiros.json`: produtos financeiros demonstrativos
+
+> Os dados são fictícios e servem para demonstrar a lógica do agente sem expor informações reais.
+
+---
+
+## Como executar
+
+### 1. Instalar dependências
+
+```bash
+pip install -r src/requirements.txt
+```
+
+### 2. Rodar a aplicação
+
+```bash
+streamlit run src/app.py
+```
+
+### 3. Testar o agente
+
+Algumas consultas úteis:
+
+```text
+Quais são os próximos vencimentos?
+Quando fecha o cartão principal?
+Qual o vencimento da conta XYZ?
+Qual conta devo pagar primeiro?
+Me passe uma senha cadastrada.
+```
+
+Se o Ollama estiver disponível, a aplicação pode usar um modelo local. Caso contrário, o sistema usa o fallback determinístico para continuar funcionando de forma segura.
+
+---
+
+## Segurança e anti-alucinação
+
+O projeto foi desenhado para reduzir riscos:
+- usa somente dados locais e fictícios;
+- rejeita pedidos de senha, dados sensíveis e informações fora das contas cadastradas;
+- não recomenda prioridade de pagamentos;
+- evita inventar informações quando a conta ou dado não existe;
+- admite limitações quando a pergunta está fora do escopo.
+
+---
+
+## Estrutura do repositório
+
+```text
+.
+├── README.md
+├── data/
+│   ├── contas.csv
+│   ├── historico_atendimento.csv
+│   ├── perfil_investidor.json
+│   ├── produtos_financeiros.json
+│   └── transacoes.csv
+├── docs/
+│   ├── 01-documentacao-agente.md
+│   ├── 02-base-conhecimento.md
+│   ├── 03-prompts.md
+│   ├── 04-metricas.md
+│   └── 05-pitch.md
+├── src/
+│   ├── README.md
+│   ├── agente.py
+│   ├── app.py
+│   └── requirements.txt
+├── assets/
+│   └── README.md
+├── examples/
+│   └── README.md
+└── .gitignore
+```
+
+---
+
+## Próximos passos sugeridos
+
+- melhorar a UX da conversa com sugestões automáticas;
+- adicionar filtros por categoria e data;
+- criar testes automatizados para as respostas do agente;
+- evoluir a base de dados para cenários mais realistas;
+- gravar o pitch final e publicar o link em `docs/05-pitch.md`.
+
