@@ -1,31 +1,31 @@
 # Código da Aplicação
 
-Esta pasta contém o código do seu agente financeiro.
+O Senninha é um protótipo Streamlit que consulta datas de fechamento e vencimento das contas fictícias em `data/contas.csv`.
 
-## Estrutura Sugerida
+## Estrutura
 
-```
+```text
 src/
-├── app.py              # Aplicação principal (Streamlit/Gradio)
-├── agente.py           # Lógica do agente
-├── config.py           # Configurações (API keys, etc.)
-└── requirements.txt    # Dependências
-```
-
-## Exemplo de requirements.txt
-
-```
-streamlit
-openai
-python-dotenv
+├── app.py            # Interface Streamlit
+├── agente.py         # Carregamento, contexto e respostas seguras
+└── requirements.txt  # Dependências
 ```
 
 ## Como Rodar
 
-```bash
-# Instalar dependências
-pip install -r requirements.txt
+Na raiz do repositório:
 
-# Rodar a aplicação
-streamlit run app.py
+```bash
+pip install -r src/requirements.txt
+streamlit run src/app.py
 ```
+
+O modo padrão não exige API key nem serviço externo. Para respostas contextualizadas por LLM, instale e execute o [Ollama](https://ollama.ai/), baixe um modelo (por exemplo, `ollama run llama3.2`) e ative **Usar Ollama local** na barra lateral. Se o Ollama estiver indisponível, o app usa o fallback determinístico.
+
+## Consultas para testar
+
+- `Quais são os próximos vencimentos?`
+- `Quando fecha o cartão principal?`
+- `Qual o vencimento da conta XYZ?`
+- `Qual conta devo pagar primeiro?`
+- `Me passe uma senha cadastrada.`

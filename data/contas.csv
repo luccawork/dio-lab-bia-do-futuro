@@ -1,0 +1,6 @@
+data,conta,categoria,valor,data_fechamento,data_vencimento,status,recorrente
+2025-11-01,Cartão principal,cartao,850.00,2025-11-05,2025-11-12,aberta,sim
+2025-11-01,Conta de luz,moradia,180.00,2025-11-10,2025-11-17,aberta,sim
+2025-11-01,Internet,residencial,99.90,2025-11-15,2025-11-22,aberta,sim
+2025-11-01,Academia,saude,99.00,2025-11-20,2025-11-27,aberta,sim
+2025-11-01,Aluguel,moradia,1200.00,2025-11-25,2025-12-05,agendada,sim
