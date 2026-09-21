@@ -148,12 +148,3 @@ O projeto foi desenhado para reduzir riscos:
 ```
 
 ---
-
-## Próximos passos sugeridos
-
-- melhorar a UX da conversa com sugestões automáticas;
-- adicionar filtros por categoria e data;
-- criar testes automatizados para as respostas do agente;
-- evoluir a base de dados para cenários mais realistas;
-- gravar o pitch final e publicar o link em `docs/05-pitch.md`.
-
