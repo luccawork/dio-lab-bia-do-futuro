@@ -1,40 +1,50 @@
 # Pitch (3 minutos)
 
-## Roteiro Sugerido
+## Roteiro do Pitch
 
-### 1. O Problema (30 seg)
+### 1. O Problema (30 segundos)
 
-Muitas pessoas perdem o controle das contas recorrentes porque não acompanham com clareza as datas de fechamento e vencimento ao longo dos meses. As informações ficam espalhadas, e uma dúvida simples exige consultar diferentes lugares.
+Muitas pessoas perdem o controle das contas recorrentes ao longo do mês. Elas lembram do valor total, mas não sabem exatamente quando cada conta fecha, quando vence e qual informação precisa consultar no momento certo.
 
-### 2. A Solução (1 min)
+Esse cenário gera esquecimento, atraso e ansiedade na rotina financeira pessoal.
 
-O Senninha é um agente financeiro consultivo, com linguagem técnica e acessível, que centraliza os dados demonstrativos das contas. O usuário pergunta em linguagem natural e recebe datas de fechamento, vencimentos, valores e status informativo. A aplicação usa Streamlit, dados locais em CSV e Ollama como LLM local. Antes de gerar a resposta, o sistema filtra os dados relevantes; quando o modelo não está disponível, usa respostas determinísticas.
+### 2. A Solução (1 minuto)
 
-O agente foi desenhado com segurança: não acessa dados reais, não solicita senhas, não inventa informações e não recomenda qual conta deve ser paga primeiro.
+O Senninha é um agente financeiro consultivo que conversa em linguagem natural e responde com base em dados fictícios e organizados. Ele ajuda a consultar:
 
-### 3. Demonstração (1 min)
+- datas de fechamento das contas;
+- datas de vencimento;
+- valores e status das contas;
+- histórico de atendimentos demonstrativos.
 
-1. Abrir a aplicação e mostrar as contas cadastradas.
-2. Perguntar: `Quais são os próximos vencimentos?`.
-3. Perguntar: `Quando fecha o cartão principal?`.
-4. Perguntar por uma conta inexistente e mostrar a admissão de ausência de dados.
-5. Perguntar `Qual conta devo pagar primeiro?` e mostrar a recusa de recomendação.
-6. Opcionalmente, ligar o Ollama e repetir uma consulta contextualizada.
+A solução foi pensada para ser simples, segura e útil: o agente não inventa informações, não solicita dados sensíveis e não recomenda prioridade de pagamentos.
 
-### 4. Diferencial e Impacto (30 seg)
+### 3. Demonstração (1 minuto)
 
-O diferencial é combinar uma interface simples com rastreabilidade: cada resposta vem da base de contas e tem um escopo explícito. Isso torna a IA mais segura para uma tarefa cotidiana, ajuda o usuário a se organizar e demonstra como linguagem natural, Python, dados e UX podem trabalhar juntos sem transformar o agente em consultor financeiro.
+Na demonstração, eu mostro a interface em Streamlit com a lista de contas cadastradas e faço algumas perguntas em linguagem natural, por exemplo:
+
+- "Quais são os próximos vencimentos?"
+- "Quando fecha o cartão principal?"
+- "Qual o vencimento da conta XYZ?"
+- "Qual conta devo pagar primeiro?"
+
+A ideia é mostrar que o agente responde com clareza, sem alucinar, e que ele funciona mesmo quando o LLM local não está disponível, usando o fallback seguro.
+
+### 4. Diferencial e Impacto (30 segundos)
+
+O diferencial do projeto está na combinação de IA, UX e dados estruturados em um fluxo seguro. Em vez de um chatbot genérico, o Senninha foi desenhado para um contexto real de uso: acompanhamento financeiro pessoal com foco em clareza e confiabilidade.
+
+Esse tipo de agente pode reduzir a fricção da rotina financeira, ajudar a organização pessoal e demonstrar como inteligência artificial pode ser usada de forma responsável e útil no dia a dia.
 
 ---
 
 ## Checklist do Pitch
 
-- [ ] Duração máxima de 3 minutos
-- [ ] Problema de acompanhamento de datas claramente definido
-- [ ] Consulta de fechamento e vencimento demonstrada
-- [ ] Tratamento de conta inexistente demonstrado
-- [ ] Limitações e segurança explicadas
-- [ ] Áudio e vídeo com boa qualidade
+- [x] Duração máxima de 3 minutos
+- [x] Problema claramente definido
+- [x] Solução demonstrada na prática
+- [x] Diferencial explicado
+- [x] Áudio e vídeo com boa qualidade
 
 ---
 
